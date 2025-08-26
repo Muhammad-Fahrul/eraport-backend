@@ -1,0 +1,16 @@
+runtime: nodejs20
+
+env_variables:
+  ALLOWED_ORIGIN: "https://muhammad-fahrul.github.io"
+  MONGO_URI: "mongodb+srv://fahrul:cilung@cluster0.adpu9uy.mongodb.net/raport"
+
+handlers:
+  - url: /assets
+    static_dir: frontend/dist/assets
+
+  - url: /(.*\.(js|css|map|ico|png|jpg|svg))$
+    static_files: frontend/dist/\1
+    upload: frontend/dist/.*\.(js|css|map|ico|png|jpg|svg)
+
+  - url: /.*
+    script: auto
